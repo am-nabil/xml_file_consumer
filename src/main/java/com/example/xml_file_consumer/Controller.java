@@ -20,9 +20,9 @@ public class Controller {
     }
 
     @PostMapping(value = "/parseXml")
-    public void postXmlFile(@RequestParam("file") MultipartFile file) throws IOException, XmlException {
+    public String postXmlFile(@RequestParam("file") MultipartFile file) throws IOException, XmlException {
         XmlObject xml = XmlObject.Factory.parse(new ByteArrayInputStream(file.getBytes()));
-        System.out.println(xml.toString());
+        return xml.toString();
     }
 
 }
